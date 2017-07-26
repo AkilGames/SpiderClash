@@ -24,7 +24,10 @@ public class AchievementButton : MonoBehaviour
     {
         this.isOpened = isOpened;
         GetComponent<Image>().color = isOpened ? Color.white : Color.grey;
-        secret.color = !isOpened && isSecret ? Color.white : Color.clear;
-        GetComponent<Button>().interactable = !isOpened;
+        if (isSecret)
+        {
+            GetComponent<Button>().interactable = !isOpened;
+            secret.color = !isOpened ? Color.white : Color.clear;
+        }
     }
 }

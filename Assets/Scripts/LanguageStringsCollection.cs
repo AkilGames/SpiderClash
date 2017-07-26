@@ -55,6 +55,7 @@ public class LanguageStringsCollection : Dictionary<LANGUAGE, Dictionary<string,
                     #endregion
 
                     #region Achievements Menu 
+                    {"NewAchievement", "New Achievement!"},
                     {"Achievment1Caption", "Beginner"},
                     {"Achievment1Description", "Pass one level"},
                     {"Achievment2Caption", "Newbie"},
@@ -134,6 +135,7 @@ public class LanguageStringsCollection : Dictionary<LANGUAGE, Dictionary<string,
                     #endregion 
 
                     #region Achievements Menu 
+                    {"NewAchievement", "Новое достижение!"},
                     {"Achievment1Caption", "Начинающий"},
                     {"Achievment1Description", "Пройти один уровень"},
                     {"Achievment2Caption", "Новичок"},
@@ -144,6 +146,7 @@ public class LanguageStringsCollection : Dictionary<LANGUAGE, Dictionary<string,
                     {"Achievment4Description", "Пройти 10 уровней"},
                     {"Achievment5Caption", "Титан"},
                     {"Achievment5Description", "Пройти все уровни"},
+
                     {"Achievment6Caption", "Три звезды"},
                     {"Achievment6Description", "Собрать три звезды"},
                     {"Achievment7Caption", "Девять звезд"},
@@ -152,8 +155,10 @@ public class LanguageStringsCollection : Dictionary<LANGUAGE, Dictionary<string,
                     {"Achievment8Description", "Собрать 25 звезд"},
                     {"Achievment9Caption", "Клептоман"},
                     {"Achievment9Description", "Собрать все звезды"},
+
                     {"Achievment10Caption", "Первая кровь"},
                     {"Achievment10Description", "Проиграть в первый раз"},
+
                     {"Achievment11Caption", "Боевое крещение"},
                     {"Achievment11Description", "Победить первого врага"},
                     {"Achievment12Caption", "Герой по соседству"},
@@ -213,6 +218,7 @@ public class LanguageStringsCollection : Dictionary<LANGUAGE, Dictionary<string,
                     #endregion 
 
                     #region Achievements Menu 
+                    {"NewAchievement", "Нове досягнення!"},
                     {"Achievment1Caption", "Початківець"},
                     {"Achievment1Description", "Пройти один рівень"},
                     {"Achievment2Caption", "Новачок"},
@@ -292,6 +298,8 @@ public class LanguageStringsCollection : Dictionary<LANGUAGE, Dictionary<string,
                     #endregion 
 
                     #region Achievements Menu 
+                    #warning Translate
+                    {"NewAchievement", "New Achievement!"},
                     {"Achievment1Caption", "Anfänger"},
                     {"Achievment1Description", "Gehen durch eine Ebene"},
                     {"Achievment2Caption", "Neuling"},

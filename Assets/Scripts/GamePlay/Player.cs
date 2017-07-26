@@ -53,19 +53,20 @@ public class Player : MonoBehaviour
     public void CastLine()
     {
         ResetLine();
-
+        SoundManager.Instance.PlaySound("Web");
         touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         ray = Physics2D.Raycast(transform.position, touchPos - (Vector2)transform.position, 20f, LayerMask.GetMask("Intersectable"));
         join.connectedBody = ray.rigidbody;
         join.distance = ray.distance;
-        join.connectedAnchor = new Vector2((ray.point - (Vector2)ray.transform.position).x, (ray.point - (Vector2)ray.transform.position).y);
+        join.connectedAnchor = new Vector2(ray.point.x - ray.transform.position.x * ray.transform.localScale.x, ray.point.y - ray.transform.position.y * ray.transform.localScale.y);
 
         isCasting = line.enabled = true;
         line.SetPosition(0, transform.position);
 
         castTweener = DOTween.To(() => k, v => line.SetPosition(1, Lerp(transform.position, ray.point, k = v)), 1.0f, castSpeed * ray.distance).OnComplete(() =>
         {
-            if (ray.collider.tag == "Wall" || ray.collider.tag == "Box")
+            isCasting = false;
+            if (ray.collider.tag == "Wall" || ray.collider.tag == "Box" ||  ray.collider.tag == "Adhesive")
             {
                 isPulling = join.enabled = true;
                 Pull();
@@ -88,7 +89,7 @@ public class Player : MonoBehaviour
             pullTweener.Kill();
             join.connectedBody = temp.rigidbody;
             ray = temp;
-            join.connectedAnchor = new Vector2((ray.point - (Vector2)ray.transform.position).x, (ray.point - (Vector2)ray.transform.position).y);
+            join.connectedAnchor = new Vector2(ray.point.x - ray.transform.position.x * ray.transform.localScale.x, ray.point.y - ray.transform.position.y * ray.transform.localScale.y);
             Pull();
             return true;
         }

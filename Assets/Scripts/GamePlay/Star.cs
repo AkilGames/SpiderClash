@@ -26,23 +26,26 @@ public class Star : MonoBehaviour
             arrow.gameObject.SetActive(true);
             arrow.DORotate(new Vector3(0.0f, 0.0f, -360.0f), time, RotateMode.LocalAxisAdd).SetEase(Ease.Linear).OnComplete(()=>
             {
-                Complete();
+                Complete(false);
+                gameObject.SetActive(false);
             });
         }
     }
 
-    Tweener Complete()
+    Tweener Complete(bool isColected = true)
     {
+        GetComponent<Collider2D>().enabled = false;
         if (isTimer)
         {
             transform.DOKill();
             arrow.gameObject.SetActive(false);
             arrow.DOKill();
         }
-        transform.DOPunchScale(new Vector2(10.0f, 10.0f), 0.4f).OnComplete(() =>
-        {
-            gameObject.SetActive(false);
-        });
+        if(isColected)
+            transform.DOPunchScale(new Vector2(1.5f, 1.5f), 0.4f).OnComplete(() =>
+            {
+                gameObject.SetActive(false);
+            });
         return GetComponent<SpriteRenderer>().DOFade(0.0f, 0.4f);
     }
 }
